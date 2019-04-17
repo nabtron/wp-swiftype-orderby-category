@@ -4,6 +4,9 @@
 function nabtron_update_swiftype_document_url( $document, $post ) {
     $nabtron_member_nonmember_metabox_value = empty(get_post_meta( $post->ID, '_nabtron_member_nonmember_metabox_value', true )) ? '0' : '1';
 
+    // or use this to check if it has a category then use that
+    // $nabtron_member_nonmember_metabox_value = empty( has_term( '11', 'category', $post->ID ) ) ? '0' : '1';
+    
     $document['fields'][] = array( 'name' => 'non_member',
                                    'type' => 'enum',
                                    'value' => $nabtron_member_nonmember_metabox_value);
